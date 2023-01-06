@@ -38,3 +38,10 @@ main h2 {
 main h2:not(:first-of-type) {
   margin-top: 1.5rem;
 }
+
+.before {
+  margin-top: 0.5rem;
+}
+.after {
+  margin-bottom: 0.75rem;
+}

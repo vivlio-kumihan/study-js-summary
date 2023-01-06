@@ -1,36 +1,17 @@
-# JavaScripまとめ
+# JavaScriptまとめ
 
-## 要素の選択
+## 要素の挿入・追加
 
-下記のようにしてリストを生成して要素を選択してみる。
+見出しにJavaScriptで文章を追加してみる。
 
 __html__
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./assets/css/destyle.css">
-  <link rel="stylesheet" href="./assets/css/fonts.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <script src="./assets/js/behavior.js" defer></script>
-
-</head>
-<body>
-  <div class="container">
-    <ul id="menu" class="list">
-      <li><a href="#"></a></li>
-      <li><a href="#"></a></li>
-      <li><a href="#"></a></li>
-      <li><a href="#"></a></li>
-      <li><a href="#"></a></li>
-    </ul>  
-  </div>
-</body>
-</html>
+<div class="container">
+  <main>
+    <h1>要素の挿入 appendChild</h1>
+    <h2>befor, afterの検証</h2>
+  </main>
+</div>
 ```
 
 __css__
@@ -42,7 +23,6 @@ html {
 }
 
 body {
-  font-size: 1rem;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
   color: #555;
@@ -57,55 +37,64 @@ body {
   height: 100vh;
 }
 
-.list {
-  font-size: 2rem;
+main {
+  padding: 4rem;
+  background-color: #eee;
 }
 
-.list li:not(:first-of-type) {
+main h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+main h2 {
+  margin: 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+main h2:not(:first-of-type) {
   margin-top: 1.5rem;
 }
+
+.before {
+  margin-top: 0.5rem;
+}
 ```
 
-### IDを取得する。=> getElementById
+### 指定したセレクターの子要素として、その中の一番最後に追加する。 => appendChild()
 ```
-objId = document.getElementById("menu");
-console.log(objId);
+const main = document.querySelector("main"),
+      pgh = document.createElement("p")
+pgh.textContent = "helloと文字をmain要素の中に最後の子要素として追加する。"
+
+main.appendChild(pgh)
+
+const heading2 = document.querySelector("main h2"),
+      divBefore = document.createElement("div"),
+      divAfter = document.createElement("div")
 ```
 
-### CSSセレクター（その中身も含めた『最初』の一つ）=> querySelector
+### セレクターにクラスを追加する方法 => classList.add("クラス名"), .classNameなど
+
 ```
-objSelector = document.querySelector("li");
-console.log(objSelector);
+divBefore.classList.add("before")
+// divAfter.classList.add("after")
+
+// 他の方法もある。
+// => セレクター.className = "クラス名"
+// => ID.id = "ID名"
+// divBefore.className = "before"
+divAfter.id = "after"
 ```
 
-### CSSセレクターをNodeListとして取得する。=> querySelectorAll
+### h2に文章を挿入する。 => .before(), .after()
 ```
-objSelctAll = document.querySelectorAll("li");
-console.log(objSelctAll);
-```
+divBefore.textContent = "h2の前にこの文章を挿入する。"
+divAfter.textContent = "h2の後にこの文章を挿入する。"
 
-### HTML（HTML全て）を取得する。=> documentElement
-```
-objHTML = document.documentElement;
-console.log(objHTML);
-```
-
-### CSSセレクターのbody全体を取得する。
-```
-objBody = document.body;
-console.log(objBody);
-```
-
-### CSSセレクターのhead全体を取得する。
-```
-objHead = document.head;
-console.log(objHead);
-```
-
-### 実践　要素を取得し該当の値を変更する。
-```
-objSelects = document.querySelectorAll("a");
-objSelects.forEach((element, idx) => {
-  element.textContent = "hello" + (idx + 1);
-});
+// 前に挿入する。=> object.before()
+heading2.before(divBefore)
+// 後ろに挿入する。=> object.after()
+heading2.after(divAfter)
 ```
