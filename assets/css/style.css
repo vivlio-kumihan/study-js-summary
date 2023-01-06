@@ -5,7 +5,6 @@ html {
 }
 
 body {
-  font-size: 1rem;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
   color: #555;
@@ -20,10 +19,22 @@ body {
   height: 100vh;
 }
 
-.list {
-  font-size: 2rem;
+main {
+  padding: 4rem;
+  background-color: #eee;
 }
 
-.list li:not(:first-of-type) {
+main h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+main h2 {
+  margin: 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+main h2:not(:first-of-type) {
   margin-top: 1.5rem;
 }
