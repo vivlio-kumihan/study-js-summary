@@ -1,30 +1,30 @@
-// 要素の挿入・追加
+// 要素の切り替え・付与
 
-// 指定したセレクターの子要素として、その中の一番最後に追加する。
-const main = document.querySelector("main"),
-      pgh = document.createElement("p")
-pgh.textContent = "helloと文字をmain要素の中に最後の子要素として追加する。"
+// 要素を切り替えるとは、
+// ・『クリックしたイベント』を契機にオブジェクトや状況の変化を演出する。
+// ・ターゲットとなる要素へ変化させる効果を設定したクラスを付与する。
 
-main.appendChild(pgh)
+// // 契機
+// // クリックして関数を作動させる => EventTarget.addEventListener("click", 関数)
+// document.getElementById("switch-class").addEventListener("click", function() {
+//   this.textContent = "hello";
+// })
 
-const heading2 = document.querySelector("main h2"),
-      divBefore = document.createElement("div"),
-      divAfter = document.createElement("div")
+// // 無名関数で『this』は使えない。だからベタべタの書き方になる。
+// document.getElementById("switch-class").addEventListener("click", () => {
+//   document.getElementById("switch-class").textContent = "hello";
+// })
 
-// セレクターにクラスを追加する方法 => classList.add("クラス名")
-divBefore.classList.add("before")
-// divAfter.classList.add("after")
+// // 行数は増えるがインスタンスにして運用した方が見通しがよいと思われるので、当面はこの書式で進める。
+// const switchClass = document.getElementById("switch-class")
+// switchClass.addEventListener("click", () => {
+//   switchClass.textContent = "hello"
+// })
 
-// 他の方法もある。
-// => セレクター.className = "クラス名"
-// => ID.id = "ID名"
-// divBefore.className = "before"
-divAfter.id = "after"
-
-divBefore.textContent = "h2の前にこの文章を挿入する。"
-divAfter.textContent = "h2の後にこの文章を挿入する。"
-
-// 前に挿入する。=> object.before()
-heading2.before(divBefore)
-// 後ろに挿入する。=> object.after()
-heading2.after(divAfter)
+// クラスの付与 => classList.add()
+// ID要素にクラスを付与して効果を切り替える場合、CSSの優先度に留意する。
+const switchClass = document.getElementById("switch-class")
+switchClass.addEventListener("click", () => {
+  switchClass.textContent = "hello"
+  switchClass.classList.add("add-appearance")
+})

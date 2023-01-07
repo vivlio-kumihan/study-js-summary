@@ -19,29 +19,18 @@ body {
   height: 100vh;
 }
 
-main {
-  padding: 4rem;
-  background-color: #eee;
-}
-
-main h1 {
+#switch-class {
+  padding: 1rem 2rem;
   font-size: 2rem;
-  font-weight: 900;
-}
-
-main h2 {
-  margin: 0.5rem 0;
-  font-size: 1.75rem;
   font-weight: 700;
+  text-transform: uppercase;
+  background-color: #eee;
+  border-radius: .5rem;
+  cursor: pointer;
 }
 
-main h2:not(:first-of-type) {
-  margin-top: 1.5rem;
-}
-
-.before {
-  margin-top: 0.5rem;
-}
-.after {
-  margin-bottom: 0.75rem;
+/* ID要素にクラスを付与して効果を切り替える場合、CSSの優先度の都合でこういう書式になる。*/
+#switch-class.add-appearance {
+  color: #fff;
+  background-color: brown;
 }
