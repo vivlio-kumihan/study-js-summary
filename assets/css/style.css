@@ -12,6 +12,7 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -20,6 +21,7 @@ body {
 }
 
 #switch-class {
+  margin-bottom: 1rem;
   padding: 1rem 2rem;
   font-size: 2rem;
   font-weight: 700;
@@ -29,8 +31,25 @@ body {
   cursor: pointer;
 }
 
-/* ID要素にクラスを付与して効果を切り替える場合、CSSの優先度の都合でこういう書式になる。*/
 #switch-class.add-appearance {
   color: #fff;
   background-color: brown;
+}
+
+li {
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: blanchedalmond;
+  border-radius: .2rem;
+  opacity: 0;
+}
+
+li:not(:first-of-type) {
+  margin-top: .7rem;
+}
+
+.apear {
+  opacity: 1;
+  transition: 1.5s;
 }

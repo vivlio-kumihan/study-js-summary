@@ -1,35 +1,28 @@
 # JavaScriptまとめ
 
-## 要素の挿入・追加
+## 要素のクラスを付け替える。
 
-見出しにJavaScriptで文章を追加してみる。
+ボタンの表示の下にリストをレイアウトする。
 
 __html__
 ```
 <div class="container">
-  <main>
-    <h1>要素の挿入 appendChild</h1>
-    <h2>befor, afterの検証</h2>
-  </main>
+  <div id="switch-class">ここをクリックしてリストを表示させる。</div>
+  <ul id="list">
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+  </ul>
 </div>
 ```
 
 __css__
 ```
-@charset "UTF-8";
-
-html {
-  font-size: 15px;
-}
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 400;
-  color: #555;
-}
-
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -37,64 +30,52 @@ body {
   height: 100vh;
 }
 
-main {
-  padding: 4rem;
-  background-color: #eee;
-}
-
-main h1 {
+#switch-class {
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
   font-size: 2rem;
-  font-weight: 900;
-}
-
-main h2 {
-  margin: 0.5rem 0;
-  font-size: 1.75rem;
   font-weight: 700;
+  text-transform: uppercase;
+  background-color: #eee;
+  border-radius: .5rem;
+  cursor: pointer;
 }
 
-main h2:not(:first-of-type) {
-  margin-top: 1.5rem;
+#switch-class.add-appearance {
+  color: #fff;
+  background-color: brown;
 }
 
-.before {
-  margin-top: 0.5rem;
+li {
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: blanchedalmond;
+  border-radius: .2rem;
+  opacity: 0;
+}
+
+li:not(:first-of-type) {
+  margin-top: .7rem;
+}
+
+.apear {
+  opacity: 1;
+  transition: 1.5s;
 }
 ```
 
-### 指定したセレクターの子要素として、その中の一番最後に追加する。 => appendChild()
+#### クラスを付け替える。=> toggle
 ```
-const main = document.querySelector("main"),
-      pgh = document.createElement("p")
-pgh.textContent = "helloと文字をmain要素の中に最後の子要素として追加する。"
+const switchClass = document.getElementById("switch-class")
+switchClass.addEventListener("click", () => {
+  switchClass.textContent = "リスト"
+  switchClass.classList.add("add-appearance")
 
-main.appendChild(pgh)
-
-const heading2 = document.querySelector("main h2"),
-      divBefore = document.createElement("div"),
-      divAfter = document.createElement("div")
-```
-
-### セレクターにクラスを追加する方法 => classList.add("クラス名"), .classNameなど
-
-```
-divBefore.classList.add("before")
-// divAfter.classList.add("after")
-
-// 他の方法もある。
-// => セレクター.className = "クラス名"
-// => ID.id = "ID名"
-// divBefore.className = "before"
-divAfter.id = "after"
-```
-
-### h2に文章を挿入する。 => .before(), .after()
-```
-divBefore.textContent = "h2の前にこの文章を挿入する。"
-divAfter.textContent = "h2の後にこの文章を挿入する。"
-
-// 前に挿入する。=> object.before()
-heading2.before(divBefore)
-// 後ろに挿入する。=> object.after()
-heading2.after(divAfter)
+  const list = document.querySelectorAll("#list li")
+  list.forEach((element, idx) => {
+    element.textContent = `Hello Wordl! ${idx + 1}`
+    element.classList.toggle("apear")
+  });
+})
 ```
