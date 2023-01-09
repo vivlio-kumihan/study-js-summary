@@ -12,7 +12,6 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -20,36 +19,14 @@ body {
   height: 100vh;
 }
 
-#switch-class {
-  margin-bottom: 1rem;
-  padding: 1rem 2rem;
-  font-size: 2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  background-color: #eee;
-  border-radius: .5rem;
-  cursor: pointer;
-}
-
-#switch-class.add-appearance {
-  color: #fff;
-  background-color: brown;
-}
-
 li {
-  padding: .5rem 1rem;
-  font-size: 1.2rem;
+  width: 15rem;
+  padding: .5rem 0;
   text-align: center;
   background-color: blanchedalmond;
-  border-radius: .2rem;
-  opacity: 0;
+  border-radius: .3rem;
 }
 
 li:not(:first-of-type) {
   margin-top: .7rem;
-}
-
-.apear {
-  opacity: 1;
-  transition: 1.5s;
 }
