@@ -30,3 +30,8 @@ li {
 li:not(:first-of-type) {
   margin-top: .7rem;
 }
+
+.emphasis {
+  font-size: 1.1rem;
+  font-weight: 900;
+}

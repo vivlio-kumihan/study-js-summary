@@ -1,9 +1,18 @@
-// 子要素を取得する。
-// 『forEach』が使えない！
+// 最初・最後の要素を取得する。=> .firstElementChild, .lastElementChild
+const firstList = document.querySelector(".list").firstElementChild
+const lastList = document.querySelector(".list").lastElementChild
 
-const list = document.querySelector(".list").children
+// 最初のリストを取得して値を変更する。
+firstList.textContent = "hello"
 
-for (let idx = 0; idx < list.length; idx++) {
-  const element = list[idx]
-  console.log(element)
-}
+// どちらのメソッドでも思い浮かよようにね。
+// // TargetElememt.className = "class name"
+// // TargetElement.classList.add("class name")
+
+// firstList.className = "emphasis"
+firstList.classList.add("emphasis")
+
+// 最後のリストを取得して値を変更する。
+lastList.textContent = "goodbye"
+// lastList.className = "emphasis"
+lastList.classList.add("emphasis")
