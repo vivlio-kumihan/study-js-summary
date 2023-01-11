@@ -28,8 +28,9 @@ h2 {
   text-align: center;
 }
 
-.list:not(:first-of-type) {
-  margin-top: 1.5rem;
+ul {
+  padding: 1rem;
+  border-radius: .3rem;
 }
 
 li {
@@ -44,16 +45,6 @@ li:not(:first-of-type) {
   margin-top: .7rem;
 }
 
-.emphasis {
-  font-size: 1.1rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.color-red {
-  color: red;
-}
-
-.bg-orange {
-  background-color: rgb(239, 207, 149);
+.bg-color-red {
+  background-color: red;
 }
