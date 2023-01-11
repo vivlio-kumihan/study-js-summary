@@ -1,21 +1,14 @@
 # JavaScriptまとめ
 
-## 親要素にアクセスする。
-
-__親要素である『ul』の背景色を変更してみる。__
+## イベント（クリック）を実行してみる。
 
 __html__
 ```
-  <div class="container">
-    <h2>選択しりリストの<br>親要素の値を変更してみる。</h2>
-    <ul class="list">
-      <li>List 1</li>
-      <li>List 2</li>
-      <li>List 3</li>
-      <li>List 4</li>
-      <li>List 5</li>
-    </ul>
-  </div>
+<div class="container">
+  <h2>クリックを合図にして何かをする。<br>addEventListener</h2>
+  <div id="button">button</div>
+  <div id="result"></div>
+</div>
 ```
 
 __css__
@@ -27,44 +20,69 @@ __css__
   align-items: center;
 
   width: 100%;
-  height: 100vh;
+  height: 80vh;
 }
 
 h2 {
-  font-size: 1.2rem;
-  line-height: 1.4;
-  font-weight: 700;
   margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1.2;
   text-align: center;
 }
 
-ul {
-  padding: 1rem;
-  border-radius: .3rem;
-}
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-li {
-  width: 15rem;
+  width: 20%;
   padding: .5rem 0;
-  text-align: center;
-  background-color: blanchedalmond;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .5rem;
+  background-color: rgb(253, 226, 191);
   border-radius: .3rem;
 }
 
-li:not(:first-of-type) {
-  margin-top: .7rem;
+#button:hover {
+  color: #fff;
+  background-color: rgb(245, 161, 52);
+  cursor: pointer;
 }
 
-.bg-color-red {
+#result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 20%;
+  height: 2.5rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  background-color: #eee;
+  border-radius: .3rem;
+}
+
+#result.bgc-red {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 900;
   background-color: red;
+  text-transform: uppercase;
 }
 ```
 
 ---
-__js => .nextElementSibling, .previousElementSibling__
+__js => .addEventListener()__
 
-##### 親要素にアクセスして背景色を変更する。
+##### クリックを合図に文字を表示させてあしらいを変更する。
 ```
-const list = document.querySelector(".list li");
-list.parentNode.classList.add("bg-color-red")
+const trigger = document.getElementById("button")
+trigger.addEventListener("click", () => {
+  const inputArea = document.getElementById("result")
+  inputArea.textContent = "hello, world!"
+  inputArea.classList.add("bgc-red")
+})
 ```

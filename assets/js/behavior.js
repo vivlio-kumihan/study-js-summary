@@ -1,4 +1,8 @@
-// 親要素にアクセスする。
+// クリックを合図に文字を表示させる。=> addEventLins
 
-const list = document.querySelector(".list li");
-list.parentNode.classList.add("bg-color-red")
+const trigger = document.getElementById("button")
+trigger.addEventListener("click", () => {
+  const inputArea = document.getElementById("result")
+  inputArea.textContent = "hello, world!"
+  inputArea.classList.add("bgc-red")
+})
