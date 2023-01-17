@@ -1,83 +1,115 @@
 # JavaScriptまとめ
 
-## スクロールした値を取得、スクロール値によってあしらいを変える
+## スクロールした値を取得、スクロール値によってあしらいを変える その2
+
+__スクロール上下であしらいを切り替える__
 
 __html__
 ```
-<div class="container">
-  <div id="scroll-position"></div>
-  <ul>
-    <li>contents 1</li>
-    <li>contents 2</li>
-    <li>contents 3</li>
-    ...
-    <li>contents 50</li>
-    ...
-    <li>contents 100</li>
-  </ul>
-</div>
+  <header>
+    <a href="#" class="logo">ビブリオ組版</a>
+    <ul>
+      <li>menu 1</li>
+      <li>menu 2</li>
+      <li>menu 3</li>
+      <li>menu 4</li>
+      <li>menu 5</li>
+    </ul>
+  </header>
+  <main>
+    <section>section 1</section>
+    <section>section 2</section>
+    <section>section 3</section>
+    <section>section 4</section>
+    <section>section 5</section>
+  </main>
 ```
 
 __css__
 ```
-.container {
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  text-align: center;
+  height: 4rem;
+  padding: 0 2rem;
+  color: #fff;
+  background-color: #333;
+  text-transform: uppercase;
+
+  opacity: 1;
+  transition: .3s;
 }
 
-ul {
-  padding: 2rem;
+header.inActive {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+header .logo {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+header ul {
+  display: flex;
+
+  font-weight: 700;
+}
+
+header ul li:not(:first-of-type) {
+  margin-left: 2rem;
+}
+
+main {
+  max-width: 1000px;
+  margin: 4rem auto;
   background-color: #eee;
 }
 
-li:not(:first-of-type) {
-  margin-top: .5rem;
-}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-#scroll-position {
-  position: fixed;
-  bottom: 3rem;
-  right: 3rem;
-
-  padding: 1rem;
-  color: #fff;
-  background-color: #555;
-  border-radius: .3rem;
-}
-
-.bg-color-red {
+  height: 20rem;
+  margin-top: 6rem;
+  background-color: #ddd;
+  font-size: 1.1rem;
   font-weight: 900;
-  color: #fff;
-  background-color: red;
-  text-transform: uppercase;
-  transition: .7s;
+  border-radius: .5rem;
+}
+
+section:not(:first-of-type) {
+  margin-top: 2rem;
 }
 ```
 
 ---
-__js => window.addEventListener("scroll", ()=> { function }__
+__留意点：以下の三つのメソッドは同じ。__
 __let scroll = document.documentElement.scrollTop__
+__let scroll = window.pageYOffset__
+__let scroll = window.scrollY__
 
-##### スクロール量を表示させる。スクロールの位置によってあしらいを変更する。
+##### 下へスクロールするとヘッダーを隠す。スクロールを上げるとヘッダーを出す。
+
 ```
-// 『window』オブジェクトに『scroll』をきっかけとして『.addEventListener』でインスタンスを生成させる。
-window.addEventListener("scroll", ()=> {
-  // このインスタンス内で『.scrollTop』メソッドを送って画面上辺からの距離を取得する。
-  let scroll = document.documentElement.scrollTop
+// スクロール・イベントについて　その2
+let beforeScrollValue = 0
+const headerElm = document.querySelector("header")
 
-  // 任意の要素へ値を設定して、
-  document.getElementById("scroll-position").textContent = scroll
-
-  // 任意の要素のあしらいを変更する。
-  if (scroll > 300) {
-    document.querySelector("ul").classList.add("bg-color-red")
+window.addEventListener("scroll", () => {
+  if (window.scrollY > beforeScrollValue) {
+    headerElm.classList.add("inActive")
   } else {
-    document.querySelector("ul").classList.remove("bg-color-red")
+    headerElm.classList.remove("inActive")
   }
+  beforeScrollValue = window.scrollY
 })
 ```

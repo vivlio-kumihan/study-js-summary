@@ -1,13 +1,12 @@
-// スクロール・イベントについて　その1
+// スクロール・イベントについて　その2
+let beforeScrollValue = 0
+const headerElm = document.querySelector("header")
+
 window.addEventListener("scroll", () => {
-  let scroll = window.pageYOffset
-
-  document.getElementById("scroll-position").textContent = scroll
-
-  if (scroll > 0) {
-    document.getElementById("header").classList.add("active")
+  if (window.scrollY > beforeScrollValue) {
+    headerElm.classList.add("inActive")
   } else {
-    document.getElementById("header").classList.remove("active")
+    headerElm.classList.remove("inActive")
   }
-
+  beforeScrollValue = window.scrollY
 })
