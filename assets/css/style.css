@@ -8,143 +8,118 @@ html {
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
-  background-color: #333;
-  color: #fff;
 }
 
 header {
-  padding: 3rem;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-@keyframes titleAnimation {
-  0% {
-    letter-spacing: 2rem;
-    opacity: 0;
-  }
-}
-
-header h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  margin-bottom: 4rem;
-  /* 見出しは改行させない。明示的に。 */
-  white-space: nowrap;
-  animation: titleAnimation 1.5s;
+  width: 100%;
+  height: 80vh;
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #333;
 }
 
 main {
-  /* 68rem */
-  max-width: 1020px;
+  max-width: 1000px;
   width: 100%;
-  margin: 4rem auto;
+  margin: 3rem auto;
+  background-color: #eee;
 }
 
-.contents li {
-  position: relative;
+.button {
+  width: 8rem;
+  height: 2.5rem;
+  margin-top: 8rem;
 }
 
-.contents li:not(:first-of-type) {
-  margin-top: 14rem;
-}
-
-.contentText {
-  position: absolute;
-  top: 3rem;
-
+.button > a {
   display: flex;
-  flex-direction: column;
-  /* なぜ、『flex-end』にしているのか？
-  の答えは59行目。
-  これも構文的に覚える。
-  左右にオブジェクトを揃えて、
-  幅の伸び縮みに対応するため。 */
-  align-items: flex-end;
-}
-
-.contents li:nth-of-type(odd) .contentText {
-  right: 0;
-}
-
-.contents li:nth-of-type(even) .contentText {
-  align-items: flex-start;
-}
-
-/* CSSが効かない時の対処　なんで『main』を書くのか？
-属性の優先順位が想定より逆になっているから。
-逆さになった属性よりも子孫関係を詳しく書き、
-優先順位を下げることで解決させる。 */
-.contents li.show h2,
-main .contents li.show p,
-main .contents li.show img {
-  opacity: 1;
-  transform: none;
-}
-
-.contents h2 {
-  padding: .7rem 1.5rem 1.3rem;
-  /* 行位置を整えたい意図でline-heightを使っているが
-  あまり意味がなさそうなのでここでは採用しない。 */
-  /* line-height: 1.4; */
-  font-size: 3.5rem;
-  font-weight: 600;
-  letter-spacing: .2rem;
-  /* なんで改行しないのか？
-  コンテンツの幅は決めてる。
-  テキスト伸びる。画面にかかる。
-  これを前提にしたレイアウトだから。 */
-  white-space: nowrap;
-  background-color: rgba(20, 20, 20, .8);
-  border-radius: .2rem;
-  opacity: 0;
-  transform: translateY(5rem);
-  transition: 1s;
-}
-
-.contents p {
-  max-width: 22rem;
-  margin-top: 2rem;
-  padding: 1rem;
-  line-height: 1.6;
-  background-color: rgba(100, 100, 100, .8);
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #555;
   border-radius: .3rem;
-  opacity: 0;
-  transition: 1s;
 }
 
-.contents li:nth-of-type(even) p {
-  transform: translateX(-5rem);
-}
-
-.contents li:nth-of-type(odd) p {
-  transform: translateX(5rem);
-}
-
-.contents img {
-  display: block;
-  width: 65%;
-  border-radius: .2rem;
-  opacity: 0;
-  transition: 2s .5s;
-}
-
-/* 画像レイアウトは沼にハマるポイント多い。
-=> 『.contentText』と同じように左右にレイアウト出来るだろうと
-『position: absolute』しても効かずレイアウト全体が崩れる。
-=>画像を『display: block;』下の命令は効かず。
-=>margin-left: 0;などしたところでその場を全く動かない。
-こういう場合はこう書く構文的に覚える必要あり。
-要注意。 */
-.contents li:nth-of-type(even) img {
+.pict-frame {
   margin-left: auto;
-  transform: translateX(10rem);
+  width: 45rem;
+  height: 25rem;
+  margin-top: 5rem;
+  background-color: #ddd;
 }
 
-.contents li:nth-of-type(odd) img {
-  transform: translateX(-10rem);
+.pict-frame > div {
+  height: 100%;
+  background-image: url(../img/p2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-[lang="en"] {
-  font-family: 'Anton', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
+.animation-target {
+  position: relative;
+  overflow: hidden;
+}
+
+.animation-target > a,
+.animation-target > div {
+  opacity: 0;
+}
+
+@keyframes showElements {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* animation: name duration timing-function delay iteration-count direction fill-mode; */
+.animation-target.show > a,
+.animation-target.show > div {
+  animation: showElements .1s .4s forwards;
+}
+
+.animation-target::before {
+  content: '';
+  /* display: block; */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  z-index: 1;
+
+  transform: translateX(-100%);
+}
+
+@keyframes moveMask {
+  0% {
+    transform: translateX(-100%);
+  }
+  /* 左から右への動きを一と止めるように見せる方法 */
+  45%, 55% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.animation-target.show::before {
+  /* forwardsオプションで、対象は実行の最後のキーフレームで設定された計算値を保持する。 */
+  animation: moveMask .8s forwards;
 }
