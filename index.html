@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./assets/css/destyle.css">
   <link rel="stylesheet" href="./assets/css/fonts.css">
+  <link rel="stylesheet" href="./assets/css/base_style.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="./assets/js/behavior.js" defer></script>
 </head>
+
 <body>
-  <header>hello, hello, hello</header>
+  <header>
+    <h1>Scroll Animation Sample</h1>
+  </header>
+
   <main>
-    <div class="button animation-target">
-      <a href="">more...</a>
-    </div>
-    <div class="pict-frame animation-target">
-      <div></div>
-    </div>
-    
-    <div class="button animation-target">
-      <a href="">more...</a>
-    </div>
-    <div class="pict-frame animation-target">
-      <div></div>
-    </div>
-    
-    <div class="button animation-target">
-      <a href="">more...</a>
-    </div>
-    <div class="pict-frame animation-target">
-      <div></div>
-    </div>
-    
-    <div class="button animation-target">
-      <a href="">more...</a>
-    </div>
-    <div class="pict-frame animation-target">
-      <div></div>
-    </div>
+    <!-- エミュレットの書き方
+    ul.contents>li.animationTarget*4>img[src="./assets/img/p$.jpg"]+.contentText>h2{Dummy Text}+p{ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。} -->
+    <ul class="contents">
+      <li class="animationTarget">
+        <img src="./assets/img/p1.jpg" alt="">
+        <div class="contentText">
+          <h2>Dummy</h2>
+          <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+        </div>
+      </li>
+
+      <li class="animationTarget">
+        <img src="./assets/img/p2.jpg" alt="">
+        <div class="contentText">
+          <h2>Text</h2>
+          <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+        </div>
+      </li>
+
+      <li class="animationTarget">
+        <img src="./assets/img/p3.jpg" alt="">
+        <div class="contentText">
+          <h2>Dummy Text</h2>
+          <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+        </div>
+      </li>
+
+      <li class="animationTarget">
+        <img src="./assets/img/p4.jpg" alt="">
+        <div class="contentText">
+          <h2>Dummy Text</h2>
+          <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+        </div>
+      </li>
+    </ul>
   </main>
+
 </body>
+
 </html>
