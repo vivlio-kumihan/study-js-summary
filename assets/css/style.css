@@ -1,139 +1,68 @@
-@charset "utf-8";
+@charset "UTF-8";
+
+html {
+  font-size: 15px;
+}
 
 body {
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 400;
-  background-color: #333;
-  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #555;
+  text-transform: capitalize;
 }
 
-header {
-  padding: 3rem;
-}
-
-@keyframes titleAnimation {
-  0% {
-    letter-spacing: 2rem;
-    opacity: 0;
-  }
-}
-
-header h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  margin-bottom: 4rem;
-  /* 見出しは改行させない。明示的に。 */
-  white-space: nowrap;
-  animation: titleAnimation 1.5s;
-}
-
-main {
-  /* 68rem */
-  max-width: 1020px;
-  width: 100%;
-  margin: 4rem auto;
-}
-
-.contents li {
-  position: relative;
-}
-
-.contents li:not(:first-of-type) {
-  margin-top: 14rem;
-}
-
-.contentText {
-  position: absolute;
-  top: 3rem;
-
+.container {
   display: flex;
   flex-direction: column;
-  /* なぜ、『flex-end』にしているのか？
-  の答えは59行目。
-  これも構文的に覚える。
-  左右にオブジェクトを揃えて、
-  幅の伸び縮みに対応するため。 */
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  background-color: aliceblue;
 }
 
-.contents li:nth-of-type(odd) .contentText {
-  right: 0;
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 18rem;
+  height: 18rem;
+  background-color: #fff;
+  border-radius: .5rem;
 }
 
-.contents li:nth-of-type(even) .contentText {
-  align-items: flex-start;
-}
-
-/* CSSが効かない時の対処　なんで『main』を書くのか？
-属性の優先順位が想定より逆になっているから。
-逆さになった属性よりも子孫関係を詳しく書き、
-優先順位を下げることで解決させる。 */
-.contents li.show h2,
-main .contents li.show p,
-main .contents li.show img {
-  opacity: 1;
-  transform: none;
-}
-
-.contents h2 {
-  padding: .7rem 1.5rem 1.3rem;
-  /* 行位置を整えたい意図でline-heightを使っているが
-  あまり意味がなさそうなのでここでは採用しない。 */
-  /* line-height: 1.4; */
-  font-size: 3.5rem;
-  font-weight: 600;
-  letter-spacing: .2rem;
-  /* なんで改行しないのか？
-  コンテンツの幅は決めてる。
-  テキスト伸びる。画面にかかる。
-  これを前提にしたレイアウトだから。 */
-  white-space: nowrap;
-  background-color: rgba(20, 20, 20, .8);
-  border-radius: .2rem;
-  opacity: 0;
-  transform: translateY(5rem);
-  transition: 1s;
-}
-
-.contents p {
-  max-width: 22rem;
+section:not(:first-of-type) {
   margin-top: 2rem;
-  padding: 1rem;
-  line-height: 1.6;
-  background-color: rgba(100, 100, 100, .8);
+}
+
+li {
+  padding: .5rem 1rem;
+  color: #fff;
+  background-color: #555;
   border-radius: .3rem;
-  opacity: 0;
-  transition: 1s;
+  cursor: pointer;
 }
 
-.contents li:nth-of-type(even) p {
-  transform: translateX(-5rem);
+li:not(:first-of-type) {
+  margin-top: .7rem;
 }
 
-.contents li:nth-of-type(odd) p {
-  transform: translateX(5rem);
+li::before {
+  content: "=> ";
 }
 
-.contents img {
-  display: block;
-  width: 65%;
-  border-radius: .2rem;
-  opacity: 0;
-  transition: 2s .5s;
+.preview {
+  background-color: #555;
 }
 
-/* 画像レイアウトは沼にハマるポイント多い。
-=> 『.contentText』と同じように左右にレイアウト出来るだろうと
-『position: absolute』しても効かずレイアウト全体が崩れる。
-=>画像を『display: block;』下の命令は効かず。
-=>margin-left: 0;などしたところでその場を全く動かない。
-こういう場合はこう書く構文的に覚える必要あり。
-要注意。 */
-.contents li:nth-of-type(even) img {
-  margin-left: auto;
-  transform: translateX(10rem);
+.preview p {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.contents li:nth-of-type(odd) img {
-  transform: translateX(-10rem);
-}
+

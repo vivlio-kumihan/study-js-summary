@@ -1,19 +1,19 @@
-const targetElememt = document.querySelectorAll(".animationTarget");
+// カスタムデータ属性（deta-elementName）を利用して要素のあしらいを変更する。
 
-// スクロールするする度に...
-document.addEventListener("scroll", function () {
-  // その時その時の画面上面から注目しているオブジェクト上辺までの距離を逐次計測する関数を得る。
-  for (let i = 0; i < targetElememt.length; i++) {
-    // getBoundingClientRect()とは、
-    // その時その時の画面上面から注目しているオブジェクト上辺までの距離を逐次計測する関数。
-    // プラス、オブジェクトが半分程度見える距離でフェードインするアニメーションが始まるように
-    // 『top』メソッド（？）で得る距離にオブジェクトの半分の高さを加えて調整する。
-    const getElementDistance = targetElememt[i].getBoundingClientRect().top + targetElememt[i].clientHeight * 0.6
-    console.log(getElementDistance)
-    // 開いている画面の高さ
-    //   = 注目しているオブジェクトが画面をスクロールして画面下から出てくる距離
-    if (window.innerHeight > getElementDistance) {
-      targetElememt[i].classList.add("show")
-    }
-  }
+const colorList = document.querySelectorAll(".color-list li"),
+      preview = document.querySelector(".preview"),
+      paragraph = document.querySelector(".preview p")
+
+// HTMLで設定したカスタムデータの属性を取得する。　
+// こんな風に略ししている感じで覚える。
+// <li data-color="red">の要素を取得したら、属性には『赤色』が設定してある。
+// それをインスタンスへメッセージを送る感じ。
+// (data) + (-) + (color) => dataset.color => element.dataset.color
+
+colorList.forEach(element => {
+  element.addEventListener("click", () => {
+    const color = element.dataset.color
+    preview.style.backgroundColor = color
+    paragraph.textContent = color
+  })
 })
