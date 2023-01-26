@@ -1,19 +1,16 @@
-// カスタムデータ属性（deta-elementName）を利用して要素のあしらいを変更する。
+const clickEvent = document.querySelector(".button")
 
-const colorList = document.querySelectorAll(".color-list li"),
-      preview = document.querySelector(".preview"),
-      paragraph = document.querySelector(".preview p")
+clickEvent.addEventListener("click", () => {
+  const namedList = ["apple", "banana", "orange", "melon"],
+        defaultTexts = document.querySelectorAll(".default-text")
 
-// HTMLで設定したカスタムデータの属性を取得する。　
-// こんな風に略ししている感じで覚える。
-// <li data-color="red">の要素を取得したら、属性には『赤色』が設定してある。
-// それをインスタンスへメッセージを送る感じ。
-// (data) + (-) + (color) => dataset.color => element.dataset.color
+  defaultTexts.forEach(element => {
+    element.classList.add("hidden")
+  });
 
-colorList.forEach(element => {
-  element.addEventListener("click", () => {
-    const color = element.dataset.color
-    preview.style.backgroundColor = color
-    paragraph.textContent = color
+  namedList.forEach(element => {
+    let li = document.createElement("li")
+    li.textContent = element
+    document.querySelector(".preview ul").appendChild(li)
   })
 })
