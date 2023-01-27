@@ -5,7 +5,6 @@ html {
 }
 
 body {
-  font-size: 1.2rem;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 500;
   line-height: 1.7;
@@ -17,9 +16,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   height: 100vh;
+  margin-top: 30vh;
 }
 
 section {
@@ -33,33 +33,36 @@ section {
   background-color: #eee;
   border-radius: .5rem;
 }
-
 section:not(:first-of-type) {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .button {
-  padding: .5rem 0;
+  padding: .5rem;
   font-weight: 900;
   color: #fff;
   background-color: rgb(110, 10, 10);
   cursor: pointer;
 }
-
-.preview {
-  padding: 1rem 0;
+.add-elem {
+  background-color: rgb(90, 75, 75);
 }
 
+.preview {
+  display: none;
+  opacity: 0;
+  padding: 1rem;
+}
 .preview li {
   padding: 0 1rem;
   line-height: 1.2;
+  cursor: pointer;
 }
 .preview li:not(:first-of-type) {
   margin-top: .7rem;
 }
 
-
-.hidden {
-  display: none;
-  opacity: 0;
+.appear {
+  display: block;
+  opacity: 1;
 }
