@@ -27,9 +27,10 @@ section {
   justify-content: center;
   align-items: center;
 
-  width: 10rem;
+  width: 50rem;
   font-size: 0.95rem;
   font-weight: 700;
+  text-align: center;
   background-color: #eee;
   border-radius: .5rem;
 }
@@ -45,21 +46,15 @@ section:not(:first-of-type) {
   cursor: pointer;
 }
 .add-elem {
-  background-color: rgb(90, 75, 75);
+  background-color: rgb(200, 78, 78);
 }
 
 .preview {
   display: none;
   opacity: 0;
   padding: 1rem;
-}
-.preview li {
-  padding: 0 1rem;
-  line-height: 1.2;
-  cursor: pointer;
-}
-.preview li:not(:first-of-type) {
-  margin-top: .7rem;
+  font-size: 1.2rem;
+  font-weight: 900;
 }
 
 .appear {
