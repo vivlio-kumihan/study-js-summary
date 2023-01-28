@@ -1,19 +1,48 @@
-const thisButton = document.querySelector(".button"),
-      timeIndication = document.querySelector(".preview"),
-      dayOftheWeek = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
+// 基礎知識　JSで属性を設定・取得・確認
 
-thisButton.addEventListener("click", () => {
-  const thisTime = new Date(),
-        year     = thisTime.getFullYear(),
-        month    = thisTime.getMonth() + 1,
-        day      = thisTime.getDate(),
-        // 日曜日をインデックス0番として、各曜日のインデックスを返す。
-        week     = dayOftheWeek[thisTime.getDay()],
-        hours    = thisTime.getHours(),
-        minites  = thisTime.getMinutes(),
-        seconds  = thisTime.getSeconds()
+// 設定 => setAttribute("属性名", "値")
+// 取得 => getAttribute("属性名") 状態を持っている値で返す。
+// 確認 => hasAttribute("属性名") 状態を真偽値で返す。
 
-  thisButton.classList.toggle("add-elem")
-  timeIndication.textContent = `現在は、${year}年${month}月${day}日${week}${hours}時${minites}分${seconds}秒`
-  timeIndication.classList.toggle("appear")
+// arr = document.querySelectorAll("ul li a")
+// arr.forEach(element => {
+//  //『target』属性があるものに『_brank』値を設定する。
+//  element.setAttribute("target", "_brank")
+
+//  // 『target』属性があるものを取得する。
+//  console.log(element.getAttribute("target"))
+
+//  // 『クラス』属性を持っているものを取得する。この時、クラスの『値』が返る。
+//  console.log(element.getAttribute("class"))
+
+//  // 『クラス』属性を持っているものを取得する。この時、クラスの『真偽値』が返る。
+//  console.log(element.hasAttribute("class"))
+// });
+
+// 【例示】クラスの値で条件分岐し処理を振り分けるコード
+const anchors = document.querySelectorAll("li")
+
+function setElem(ins) {
+  ul = document.createElement("ul")
+  li = document.createElement("li")
+  li.classList.add("second")
+  ins.appendChild(ul)
+  ul.appendChild(li)
+  return ins
+}
+
+anchors.forEach(element => {
+  if (element.getAttribute("class") === "john") {
+    setElem(element)
+    li.textContent = "yoko"
+  } else if (element.getAttribute("class") === "paul") {
+    setElem(element)
+    li.textContent = "rinda"
+  } else if (element.getAttribute("class") === "george") {
+    setElem(element)
+    li.textContent = "hello, george!"
+  } else if (element.getAttribute("class") === "ringo") {
+    setElem(element)
+    li.textContent = "hello, ringo!"
+  }
 })

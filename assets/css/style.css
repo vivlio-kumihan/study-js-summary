@@ -6,58 +6,34 @@ html {
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 500;
   line-height: 1.7;
   color: #555;
-  text-transform: capitalize;
+  text-transform:uppercase;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
 
   height: 100vh;
   margin-top: 30vh;
 }
 
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 50rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-align: center;
-  background-color: #eee;
-  border-radius: .5rem;
+li {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.2;
 }
-section:not(:first-of-type) {
+
+.top > li:not(:first-of-type) {
   margin-top: 1rem;
 }
 
-.button {
-  padding: .5rem;
-  font-weight: 900;
-  color: #fff;
-  background-color: rgb(110, 10, 10);
-  cursor: pointer;
+.second {
+  padding-left: 1rem;
 }
-.add-elem {
-  background-color: rgb(200, 78, 78);
-}
-
-.preview {
-  display: none;
-  opacity: 0;
-  padding: 1rem;
-  font-size: 1.2rem;
-  font-weight: 900;
-}
-
-.appear {
-  display: block;
-  opacity: 1;
+.second::before {
+  content: "\2517";
+  margin-right: 1rem;
 }
