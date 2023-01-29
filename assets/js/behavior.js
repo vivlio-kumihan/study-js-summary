@@ -1,8 +1,8 @@
-// 基礎知識　JSで属性を設定・取得・確認
+// // 基礎知識　JSで属性を設定・取得・確認
 
-// 設定 => setAttribute("属性名", "値")
-// 取得 => getAttribute("属性名") 状態を持っている値で返す。
-// 確認 => hasAttribute("属性名") 状態を真偽値で返す。
+// // 設定 => setAttribute("属性名", "値")
+// // 取得 => getAttribute("属性名") 状態を持っている値で返す。
+// // 確認 => hasAttribute("属性名") 状態を真偽値で返す。
 
 // arr = document.querySelectorAll("ul li a")
 // arr.forEach(element => {
@@ -19,30 +19,48 @@
 //  console.log(element.hasAttribute("class"))
 // });
 
+
 // 【例示】クラスの値で条件分岐し処理を振り分けるコード
 const anchors = document.querySelectorAll("li")
 
-function setElem(ins) {
-  ul = document.createElement("ul")
-  li = document.createElement("li")
+function putsElem(ins, words) {
+  const ul = document.createElement("ul"),
+        li = document.createElement("li")
   li.classList.add("second")
   ins.appendChild(ul)
   ul.appendChild(li)
-  return ins
+  return li.textContent = words
 }
 
+// // if版
+// anchors.forEach(element => {
+//   if (element.getAttribute("class") === "john") {
+//     putsElem(element, "yoko")
+//   } else if (element.getAttribute("class") === "paul") {
+//     putsElem(element, "rinda")
+//   } else if (element.getAttribute("class") === "george") {
+//     putsElem(element, "hello, george!")
+//   } else if (element.getAttribute("class") === "ringo") {
+//     putsElem(element, "hello, ringo!")
+//   }
+// })
+
+// switch版
 anchors.forEach(element => {
-  if (element.getAttribute("class") === "john") {
-    setElem(element)
-    li.textContent = "yoko"
-  } else if (element.getAttribute("class") === "paul") {
-    setElem(element)
-    li.textContent = "rinda"
-  } else if (element.getAttribute("class") === "george") {
-    setElem(element)
-    li.textContent = "hello, george!"
-  } else if (element.getAttribute("class") === "ringo") {
-    setElem(element)
-    li.textContent = "hello, ringo!"
+  switch (element.getAttribute("class")) {
+    case "john":
+      putsElem(element, "yoko")
+      break;
+    case "paul":
+      putsElem(element, "rinda")
+      break;
+    case "george":
+      putsElem(element, "hello, george!")
+      break;
+    case "ringo":
+      putsElem(element, "hello, ringo!")
+      break;
+    default:
+      break;
   }
 })
