@@ -30,6 +30,10 @@ label {
   font-size: 1.1rem;
 }
 
+label:not(:first-of-type) {
+  margin-top: 2rem;
+}
+
 .in-line {
   width: 100%;
 }
@@ -42,11 +46,13 @@ input {
   background-color: rgb(200, 225, 245);
   border-radius: .3rem;
 }
+
 input::placeholder {
   font-size: 1rem;
   font-weight: 400;
   color: rgb(120, 175, 220);
 }
+
 input[type="submit"] {
   width: 100%;
   text-align: center;
@@ -54,10 +60,6 @@ input[type="submit"] {
   font-weight: 900;
   color: #fff;
   background-color: #777;
-}
-
-label:not(:first-of-type) {
-  margin-top: 2rem;
 }
 
 .out-put {
