@@ -63,15 +63,19 @@ input[type="submit"] {
 }
 
 .out-put {
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin-top: 2rem;
   background-color: rgb(245, 186, 114);
   border-radius: .3rem;
 }
 
-.out-put p {
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.5rem;
+.out-put ul {  
+  padding: 1rem 0;
+}
+.out-put li {
+  font-size: 1.1rem;
   font-weight: 700;
+  line-height: 1.5;
 }
