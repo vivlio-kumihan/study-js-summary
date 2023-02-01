@@ -21,61 +21,28 @@ body {
   margin: 10rem auto 0;
 }
 
-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-  font-size: 1.1rem;
-}
-
-label:not(:first-of-type) {
-  margin-top: 2rem;
-}
-
-.in-line {
-  width: 100%;
-}
-
-input {
-  width: 85%;
-  padding: .5rem 1rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  background-color: rgb(200, 225, 245);
-  border-radius: .3rem;
-}
-
-input::placeholder {
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgb(120, 175, 220);
-}
-
-input[type="submit"] {
-  width: 100%;
-  text-align: center;
-  font-size: .95rem;
+h1 {
   font-weight: 900;
-  color: #fff;
-  background-color: #777;
 }
 
-.out-put {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 2rem;
-  background-color: rgb(245, 186, 114);
-  border-radius: .3rem;
+section {
+  padding: 1rem;
+  width: 60%;
 }
-
-.out-put ul {  
-  padding: 1rem 0;
-}
-.out-put li {
-  font-size: 1.1rem;
+h2 {
+  padding: .5rem 1rem ;
+  font-size: .9rem;
   font-weight: 700;
-  line-height: 1.5;
+  border-bottom: 1px solid #333;
+  border-left: .5rem solid rgb(160, 0, 0);
+}
+
+h2:not(:first-of-type) {
+  margin-top: 1.5rem;
+}
+
+li {
+  text-align: center;
+  padding: .5rem 1.5rem;
+  border-bottom: 1px dotted #999 ;
 }
