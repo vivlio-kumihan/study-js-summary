@@ -11,16 +11,19 @@
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>配列を表示する filter編</h1>
-    <section>
-      <h2>処理後</h2>
-      <ul id="result"></ul>
-    </section>
-    <section>
-      <h2>メンバー一覧</h2>
-      <ul id="member"></ul>
-    </section>
+  <div id="container">
+    <div id="in-line">
+      <label for="">
+        入力
+        <input id="input1" type="text" value="" placeholder="こちらに入力してください。">
+      </label>
+      <label for="">
+        <input type="submit" value="足し算をする。">
+      </label>
+    </div>
+    <div class="out-put">
+      <ul></ul>
+    </div>
   </div>
 </body>
 </html>

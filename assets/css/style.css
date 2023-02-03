@@ -10,39 +10,90 @@ body {
   color: #555;
 }
 
-.container {
+#container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 
-  width: 60%;
+  padding: 0 2rem;
+  max-width: 30rem;
   height: 80vh;
   margin: 10rem auto 0;
 }
 
-h1 {
-  font-weight: 900;
+#in-line {
+  width: 100%;
 }
 
-section {
-  padding: 1rem;
-  width: 60%;
-}
-h2 {
-  padding: .5rem 1rem ;
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
   font-size: .9rem;
   font-weight: 700;
-  border-bottom: 1px solid #333;
-  border-left: .5rem solid rgb(160, 0, 0);
 }
 
-h2:not(:first-of-type) {
-  margin-top: 1.5rem;
+label:not(:first-of-type) {
+  margin-top: 2rem;
 }
 
-li {
+input {
+  width: 90%;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: #fff;
+  border-bottom: 1px dotted #333;
+}
+
+input::placeholder {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #999;
+}
+
+input[type="submit"] {
+  width: 100%;
   text-align: center;
-  padding: .5rem 1.5rem;
-  border-bottom: 1px dotted #999 ;
+  font-size: .95rem;
+  font-weight: 400;
+  border: 1px solid #777;
+  border-radius: .3rem;
+}
+
+input:focus-visible {
+  outline: none;
+  box-shadow: 0px 0px 5px #999;
+  border-bottom: none;
+  border-radius: .3rem;
+}
+
+.out-put {
+  display: none;
+  justify-content: center;
+
+  width: 100%;
+  margin-top: 2rem;
+  background-color: rgb(245, 186, 114);
+  border-radius: .3rem;
+  opacity: 0;
+  
+}
+
+.active {
+  display: flex;
+  opacity: 1;
+}
+
+.out-put ul {
+  padding: 1rem 0;
+}
+
+.out-put li {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
