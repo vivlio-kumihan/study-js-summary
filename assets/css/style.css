@@ -2,44 +2,18 @@
 
 html {
   font-size: 15px;
+  --line-hight: calc(1rem * 2);
 }
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  line-height: 1.7;
+  line-height: 1.5;
   color: #555;
 }
 
 #container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
-  width: 50%;
-  height: 80vh;
-  margin: 10rem auto 0;
-}
-
-section {
-  padding: 1rem;
-  width: 100%;
-}
-
-h2 {
-  padding: .5rem 1rem;
-  font-size: .9rem;
-  font-weight: 700;
-  border-bottom: 1px solid #333;
-  border-left: .5rem solid rgb(160, 0, 0);
-}
-
-h2:not(:first-of-type) {
-  margin-top: 1.5rem;
-}
-
-li {
-  text-align: center;
-  padding: .5rem 1.5rem;
-  border-bottom: 1px dotted#999;
+  max-width: 60rem;
+  margin: calc(var(--line-hight) * 5) auto 0;
+  padding: 0 2rem;
+  line-height: var(--line-hight);
 }
