@@ -2,7 +2,7 @@
 
 html {
   font-size: 15px;
-  --line-hight: calc(1rem * 2);
+  --line-hight: calc(1rem * 1.5);
 }
 
 body {
@@ -12,8 +12,17 @@ body {
 }
 
 #container {
-  max-width: 60rem;
-  margin: calc(var(--line-hight) * 5) auto 0;
+  max-width: 40rem;
+  height: 100vh;
+  margin: calc(var(--line-hight) * 5) auto;
   padding: 0 2rem;
   line-height: var(--line-hight);
+  background-color: #eee;
+}
+
+dl {
+  padding-top: 2rem;
+}
+dt:not(:first-of-type) {
+  margin-top: 1rem;
 }

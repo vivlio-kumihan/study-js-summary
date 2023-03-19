@@ -12,12 +12,12 @@
 </head>
 <body>
   <div id="container">
-    <!-- <h2>果物について</h2> -->
-    <dl id="about-fruits">
+    <dl>
+      <dt>変数と定数</dt>
+      <dd>let = 変数, const = 定数　変数の有効域については言及なし。</dd>
+      <dt>記法</dt>
+      <dd>let, function = キャメルケース, const = 定数</dd>
+      <dd>const = スネークケース（+ 大文字の場合もあり）</dd>
     </dl>
-    <p>
-      この例では、JavaScriptのオブジェクトfruitsを作成し、dl要素を取得して、ループを使ってオブジェクトの各キーと値のペアをdtとdd要素として追加しています。Object.entries()メソッドを使って、オブジェクトのキーと値のペアの配列を取得し、for...ofループを使って配列内の各キーと値にアクセスしています。document.createElement()メソッドを使って、新しいdtとdd要素を作成し、textContentプロパティを使って、要素にテキストを追加しています。最後に、appendChild()メソッドを使って、要素をdl要素に追加しています。
-
-    </p>
   </div>
 </html>
