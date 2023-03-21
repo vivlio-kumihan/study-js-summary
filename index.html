@@ -12,12 +12,22 @@
 </head>
 <body>
   <div id="container">
-    <dl>
-      <dt>変数と定数</dt>
-      <dd>let = 変数, const = 定数　変数の有効域については言及なし。</dd>
-      <dt>記法</dt>
-      <dd>let, function = キャメルケース, const = 定数</dd>
-      <dd>const = スネークケース（+ 大文字の場合もあり）</dd>
-    </dl>
+    <form action="" name="">
+      <dl>
+        <dt>
+          <label for="food">好きな食べ物はなんですか？</label>
+        </dt>
+        <dd class="select-wrapper">
+          <select name="food" id="food">
+            <option value="ラーメン">ラーメン</option>
+            <option value="餃子">餃子</option>
+            <option value="焼肉">焼肉</option>
+          </select>
+        </dd>
+        <dd>
+          <input type="button" id="btn" value="送信">
+        </dd>
+      </dl>
+    </form>
   </div>
 </html>
