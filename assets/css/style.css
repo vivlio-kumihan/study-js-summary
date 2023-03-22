@@ -18,42 +18,22 @@ body {
   border-radius: .3rem;
 }
 
-dd {
+ul {
+  padding: 1rem 0;
+}
+
+li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+li:not(:first-of-type) {
   margin-top: 1rem;
 }
 
-.select-wrapper {
-  display: inline-block;
-  position: relative;
-}
-
-select {
-  width: 132.5px;
-  height: 2rem;
-  padding-right: 2rem;
-  padding-left: 1rem;
-  /* reset cssで設定してあるが一応記述しておく。 */
-  appearance: none;
-  background-color: #ddd;
-  border-radius: .3rem;
-}
-
-select:focus-visible {
-  /* FireFoxでは設定できない。 */
-  /* Chrome用 */
-  /* デフォルトの青線を表示させないようにする。 */
-  outline: none
-}
-
-.select-wrapper::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: .5rem;
-
-  content: "▼";
-  pointer-events: none;
-  font-size: .8rem;
+label {
+  margin-left: .5rem;
 }
 
 input {
@@ -65,8 +45,7 @@ input {
 }
 
 input:hover {
-  transform: translateY(-.1rem);
-  color: #ddd;
+  color: #333;
   background-color: #aaa;
-  box-shadow: 1px 1px 2px #333;
+  box-shadow: 0px 0px 3px #777;
 }
