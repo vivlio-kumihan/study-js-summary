@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="./assets/js/behavior.js" defer></script>
 </head>
+
 <body>
   <div id="container">
     <form action="" name="">
@@ -18,8 +20,16 @@
         <dd>
           <ul>
             <li>
-              <input type="checkbox" id="on-off" name="food" value="news">
-              <label for="on-off">ニュース配信希望</label>
+              <input type="radio" id="ramen" name="food" value="ラーメン">
+              <label for="ramen">ラーメン</label>
+            </li>
+            <li>
+              <input type="radio" id="gyoza" name="food" value="餃子">
+              <label for="gyoza">餃子</label>
+            </li>
+            <li>
+              <input type="radio" id="barbecue" name="food" value="焼肉">
+              <label for="barbecue">焼肉</label>
             </li>
           </ul>
         </dd>
@@ -29,4 +39,5 @@
       </dl>
     </form>
   </div>
+
 </html>
