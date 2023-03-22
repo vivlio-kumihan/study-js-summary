@@ -1,16 +1,12 @@
-function getRadioValue(name) {
-  let result = ""
+function getRadioValue(name, value) {
   let elems = document.querySelectorAll(`input[name="${ name }"]`)
 
   for(let elem of elems) {
-    if (elem.checked) {
-      result = elem.value
+    if (elem.value === value) {
+      elem.checked = true
       break
     }
   }
-  return result
 }
 
-document.querySelector("#btn").addEventListener("click", function () {
-  console.log(getRadioValue("food"))
-}, false);
+console.log(getRadioValue("food", "餃子"))
