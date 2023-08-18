@@ -1,1 +1,37 @@
-/*# sourceMappingURL=style.css.map */
+main .content {
+  margin: 100px auto 0;
+  width: 60%;
+  background-color: #aaa;
+}
+main .content ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+}
+main .content ul li {
+  padding: 20px 0;
+  cursor: pointer;
+}
+main .content ul li + li {
+  margin-left: 20px;
+}
+main .content .target {
+  padding: 50px;
+  background-color: #eee;
+  overflow: hidden;
+}
+main .content .target h1 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 900;
+  text-align: center;
+}
+main .content .target p {
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 100;
+}/*# sourceMappingURL=style.css.map */
