@@ -1,64 +1,54 @@
-const slideUp = (selector, duration = 1000) => {
-  const target = document.querySelector(selector)
-
-  // slideDown用に必要な値をここで得る。
-  target.dataset.height = `${ target.clientHeight }px`
-  target.dataset.padding_top = window.getComputedStyle(target).paddingTop
-  target.dataset.padding_bottom = window.getComputedStyle(target).paddingBottom
-
-  // 閉まる時にカクンとならないように高さを教える。
-  target.style.height = `${ target.clientHeight }px`
-  target.animate([
-    {
-      height: '0',
-      paddingTop: '0',
-      paddingBottom: '0',
-      opacity: '0'
-    }],
-    {
-      duration: duration,
-      // fill: 'forwards', // アニメーションが終わった後の状態を保持する。
-      ease: 'ease-in-out'
-    }
-  )
-  .onfinish = () => {
-    target.style.display = 'none'
-  }
-}
-document.getElementById('slide-up').addEventListener('click', () => {
-  slideUp('.target', 500)
-})
-
-
-const slideDown = (selector, duration = 1000) => {
-  const target = document.querySelector(selector)
-
-  target.style.display = 'block'
-  target.animate([
-    {
-      height: '0',
-      paddingTop: '0',
-      paddingBottom: '0',
-      opacity: '0'
-    }],
-    [{
-      height: target.dataset.height,
-      paddingTop: target.dataset.padding_top,
-      paddingBottom: target.dataset.padding_bottom,
-      opacity: '1'
-    }],
-    {
-      duration: duration,
-      fill: 'forwards',
-      ease: 'ease-in-out'
-    }
-  )
+// メニューを開く関数
+const slideDown = (el) => {
+  el.style.height = 'auto' //いったんautoに
+  let h = el.offsetHeight //autoにした要素から高さを取得
+  el.style.height = h + 'px'
+  el.animate([ //高さ0から取得した高さまでのアニメーション
+    { height: 0 },
+    { height: h + 'px' }
+  ], {
+    duration: 300, //アニメーションの時間（ms）
+  })
 }
 
-document.getElementById('slide-up').addEventListener('click', () => {
-  slideUp('.target', 500)
-})
+// メニューを閉じる関数
+const slideUp = (el) => {
+  el.style.height = 0
+}
 
-document.getElementById('slide-down').addEventListener('click', () => {
-  slideDown('.target', 500)
+let activeIndex = null //開いているアコーディオンのindex
+
+//アコーディオンコンテナ全てで実行
+const accordions = document.querySelectorAll('ul.include-accordion')
+accordions.forEach((accordion) => {
+
+  //アコーディオンボタン全てで実行
+  const accordionBtns = accordion.querySelectorAll('button')
+  accordionBtns.forEach((accordionBtn, idx) => {
+    accordionBtn.addEventListener('click', (e) => {
+      activeIndex = idx //クリックされたボタンを把握
+      // parentNode => button < li 
+      e.target.parentNode.classList.toggle('active') //ボタンの親要素（=ul>li)にクラスを付与／削除
+      const content = accordionBtn.nextElementSibling //ボタンの次の要素（=ul>ul）
+      if(e.target.parentNode.classList.contains('active')){
+        slideDown(content) //クラス名がactive（＝閉じていた）なら上記で定義した開く関数を実行
+      }else{
+        slideUp(content) //クラス名にactiveがない（＝開いていた）なら上記で定義した閉じる関数を実行
+      }
+      accordionBtns.forEach((accordionBtn, idx) => {
+        if (activeIndex !== idx) {
+          accordionBtn.parentNode.classList.remove('active')
+          const openedContent = accordionBtn.nextElementSibling
+          slideUp(openedContent) //現在開いている他のメニューを閉じる
+        }
+      })
+      //スクロール制御のために上位階層ulのクラス名を変える
+      let container = accordion.closest('.scroll-control') //sroll-controlnのクラス名である親要素を取得
+      if(accordionBtn.parentNode.classList.contains('active') == false && container !== null ){
+        container.classList.remove('active')
+      } else if (container !== null) {
+        container.classList.add('active')
+      }
+    })
+  })
 })

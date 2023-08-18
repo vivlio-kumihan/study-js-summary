@@ -1,37 +1,58 @@
-main .content {
-  margin: 100px auto 0;
-  width: 60%;
-  background-color: #aaa;
+.contanier {
+  width: 100%;
 }
-main .content ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 900;
+.contanier .include-accordion {
+  width: 50%;
+  margin: 0 auto;
   color: #fff;
+  background-color: #35924A;
 }
-main .content ul li {
-  padding: 20px 0;
+.contanier .include-accordion li.active > button {
+  background-color: #1A5B27;
+}
+.contanier .include-accordion li.active > ul {
+  height: 100%;
+}
+.contanier .include-accordion li button {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  text-align: left;
+  color: #fff;
   cursor: pointer;
+  transition: 0.3s;
 }
-main .content ul li + li {
-  margin-left: 20px;
+.contanier .include-accordion li button:hover {
+  background-color: #1A5B27;
 }
-main .content .target {
-  padding: 50px;
-  background-color: #eee;
+.contanier .include-accordion li button::after {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+.contanier .include-accordion li.active button::after {
+  transform: rotate(225deg);
+}
+.contanier .include-accordion li ul {
+  height: 0;
+  border-top: 1px solid #67a863;
+  background-color: #5EAA6C;
+  transition: 0.5s;
   overflow: hidden;
 }
-main .content .target h1 {
-  margin-bottom: 30px;
-  font-size: 24px;
-  line-height: 1;
-  font-weight: 900;
-  text-align: center;
+.contanier .include-accordion li ul li {
+  padding: 20px 0;
+  border-bottom: 1px dotted #7FBF8B;
 }
-main .content .target p {
-  font-size: 14px;
-  line-height: 1.7;
-  font-weight: 100;
+.contanier .include-accordion li ul li a {
+  display: block;
+  padding-left: 15px;
 }/*# sourceMappingURL=style.css.map */
