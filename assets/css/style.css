@@ -1,58 +1,15 @@
-.contanier {
-  width: 100%;
+.contanier p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.05em;
 }
-.contanier .include-accordion {
-  width: 50%;
-  margin: 0 auto;
-  color: #fff;
-  background-color: #35924A;
+.contanier .effect-para p {
+  height: 70vh;
 }
-.contanier .include-accordion li.active > button {
-  background-color: #1A5B27;
-}
-.contanier .include-accordion li.active > ul {
-  height: 100%;
-}
-.contanier .include-accordion li button {
-  position: relative;
-  width: 100%;
-  padding: 15px;
-  font-size: 1em;
-  text-align: left;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.contanier .include-accordion li button:hover {
-  background-color: #1A5B27;
-}
-.contanier .include-accordion li button::after {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  transform: rotate(45deg);
-  transition: 0.5s;
-}
-.contanier .include-accordion li.active button::after {
-  transform: rotate(225deg);
-}
-.contanier .include-accordion li ul {
-  height: 0;
-  border-top: 1px solid #67a863;
-  background-color: #5EAA6C;
-  transition: 0.5s;
-  overflow: hidden;
-}
-.contanier .include-accordion li ul li {
-  padding: 20px 0;
-  border-bottom: 1px dotted #7FBF8B;
-}
-.contanier .include-accordion li ul li a {
-  display: block;
-  padding-left: 15px;
+.contanier .effect-para p:last-of-type {
+  margin-bottom: 100vh;
 }/*# sourceMappingURL=style.css.map */
